@@ -72,7 +72,7 @@ const Navbar = () => {
                                 <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                             </div>
                         </div>
-                        <ul className="mt-3 z-[1] p-2 pr-32 text-left shadow dropdown-content bg-base-100 rounded-box w-52">
+                        <ul className="mt-3 z-[1] p-2 text-left shadow dropdown-content bg-base-100 rounded-box">
                             <li><a>Dashboard</a></li>
                             <li><a>Logout</a></li>
                         </ul>

@@ -2,6 +2,7 @@ import bannerPic from '../assets/imgs/banner.jpg'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Banner = () => {
 
@@ -23,7 +24,9 @@ const Banner = () => {
                     <div>
                         <h4 className="text-lg font-bold text-white">We make your pets Happy</h4>
                         <h2 className="text-5xl font-bold text-white py-3">Taking Care of Your Furry Friends</h2>
-                        <button className="p-1 text-white bg-red-500 rounded-md font-bold">Know More About Us</button>
+                        <ScrollLink to="aboutUsSection" smooth={true} duration={1000}>
+                            <button className="p-1 text-white bg-red-500 rounded-md font-bold">Know More About Us</button>
+                        </ScrollLink>
                     </div>
                 </div>
             </div>

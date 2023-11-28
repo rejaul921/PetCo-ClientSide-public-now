@@ -12,7 +12,9 @@ const FrequentAsk = () => {
 
             {/* accordian */}
             <div className="collapse collapse-arrow bg-base-200">
-                <input type="radio" name="my-accordion-2" checked="checked" />
+                <input type="radio" name="my-accordion-2" defaultChecked />
+
+
                 <div className="collapse-title text-xl font-medium">
                     How do I adopt a pet?
                 </div>
@@ -23,6 +25,8 @@ const FrequentAsk = () => {
 {/* 2nd */}
             <div className="collapse collapse-arrow my-3 bg-base-200">
                 <input type="radio" name="my-accordion-2" />
+
+
                 <div className="collapse-title text-xl font-medium">
                 How can I list my pet for adoption?
                 </div>

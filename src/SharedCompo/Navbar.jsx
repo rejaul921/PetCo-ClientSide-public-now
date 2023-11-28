@@ -22,10 +22,10 @@ const Navbar = () => {
                             Home
                         </NavLink>
                         {/* pet listing for adoption */}
-                        <NavLink to="/adoppet" className={({ isActive, isPending }) =>
+                        <NavLink to="/adoptpet" className={({ isActive, isPending }) =>
                             isPending ? "pending" :
                                 isActive ? "text-white bg-red-500 p-1 rounded-lg" : ""}>
-                            Pets
+                            Listed Pet
                         </NavLink>
                         {/* Donate for helpless pet */}
                         <NavLink to="/donate" className={({ isActive, isPending }) =>
@@ -53,7 +53,7 @@ const Navbar = () => {
                         <NavLink to="/adoppet" className={({ isActive, isPending }) =>
                             isPending ? "pending" :
                                 isActive ? "text-white bg-red-500 p-1 rounded-lg" : ""}>
-                            Pets
+                            Listed Pet
                         </NavLink>
                         {/* Donate for helpless pet */}
                         <NavLink to="/donate" className={({ isActive, isPending }) =>

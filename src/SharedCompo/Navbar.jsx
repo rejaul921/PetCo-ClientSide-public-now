@@ -18,19 +18,19 @@ const Navbar = () => {
                             {/* home */}
                         <NavLink to="/" className={({ isActive, isPending }) =>
                             isPending ? "pending" :
-                                isActive ? "text-white bg-green-700 p-1 rounded-lg" : ""}>
+                                isActive ? "text-white bg-red-500 p-1 rounded-lg" : ""}>
                             Home
                         </NavLink>
                         {/* pet listing for adoption */}
                         <NavLink to="/adoppet" className={({ isActive, isPending }) =>
                             isPending ? "pending" :
-                                isActive ? "text-white bg-green-700 p-1 rounded-lg" : ""}>
+                                isActive ? "text-white bg-red-500 p-1 rounded-lg" : ""}>
                             Pets
                         </NavLink>
                         {/* Donate for helpless pet */}
                         <NavLink to="/donate" className={({ isActive, isPending }) =>
                             isPending ? "pending" :
-                                isActive ? "text-white bg-green-700 p-1 rounded-lg" : ""}>
+                                isActive ? "text-white bg-red-500 p-1 rounded-lg" : ""}>
                             Donate
                         </NavLink>
                         </ul>
@@ -46,19 +46,19 @@ const Navbar = () => {
                         {/* home */}
                         <NavLink to="/" className={({ isActive, isPending }) =>
                             isPending ? "pending" :
-                                isActive ? "text-white bg-green-700 p-1 rounded-lg" : ""}>
+                                isActive ? "text-white bg-red-500 p-1 rounded-lg" : ""}>
                             Home
                         </NavLink>
                         {/* pet listing for adoption */}
                         <NavLink to="/adoppet" className={({ isActive, isPending }) =>
                             isPending ? "pending" :
-                                isActive ? "text-white bg-green-700 p-1 rounded-lg" : ""}>
+                                isActive ? "text-white bg-red-500 p-1 rounded-lg" : ""}>
                             Pets
                         </NavLink>
                         {/* Donate for helpless pet */}
                         <NavLink to="/donate" className={({ isActive, isPending }) =>
                             isPending ? "pending" :
-                                isActive ? "text-white bg-green-700 p-1 rounded-lg" : ""}>
+                                isActive ? "text-white bg-red-500 p-1 rounded-lg" : ""}>
                             Donate
                         </NavLink>
                     </ul>

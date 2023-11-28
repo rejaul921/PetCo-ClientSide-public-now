@@ -23,7 +23,7 @@ const Banner = () => {
                     <div>
                         <h4 className="text-lg font-bold text-white">We make your pets Happy</h4>
                         <h2 className="text-5xl font-bold text-white py-3">Taking Care of Your Furry Friends</h2>
-                        <button className="p-1 text-white bg-green-400 rounded-md font-bold">Know More About Us</button>
+                        <button className="p-1 text-white bg-red-500 rounded-md font-bold">Know More About Us</button>
                     </div>
                 </div>
             </div>

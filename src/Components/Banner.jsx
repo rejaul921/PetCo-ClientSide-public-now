@@ -11,7 +11,7 @@ const Banner = () => {
 
 
     return (
-        <div className="my-5">
+        <div className="">
             <div className=" relative h-[60vh] md:h-[85vh] w-full">
                 <div className="h-full mx-auto"><img src={bannerPic} className="rounded-xl mx-auto h-full w-full" />
                 </div>

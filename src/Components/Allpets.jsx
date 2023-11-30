@@ -10,7 +10,8 @@ const Allpets = () => {
             .then(data => setAllPets(data))
     }, [])
     console.log(allPets);
-
+    const notAdoptedYet=allPets.filter(Pet=>(!Pet.adopted))
+    console.log(notAdoptedYet);
 
 
     return (
@@ -32,7 +33,7 @@ const Allpets = () => {
                 </select>
             </div>
             <div className="flex flex-wrap -mx-4">
-                {allPets.map((pet) => (
+                {notAdoptedYet.map((pet) => (
 
                     <div key={pet._id} className="w-full md:w-1/2 lg:w-1/3 px-4 mb-4">
                         <div className="bg-white p-4 border rounded-md">

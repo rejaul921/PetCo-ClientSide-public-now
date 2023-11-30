@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Allpets = () => {
     const [allPets, setAllPets] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allPets')
+        fetch('https://petco-server.vercel.app/allPets')
             .then(res => res.json())
             .then(data => setAllPets(data))
     }, [])

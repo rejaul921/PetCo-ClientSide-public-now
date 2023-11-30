@@ -6,7 +6,7 @@ const CategoryBrowse = () => {
 
     const[categories,setCategory]=useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/categories`)
+        fetch(`https://petco-server.vercel.app/categories`)
         .then(res=>res.json())
         .then(data=>setCategory(data))
     },[])

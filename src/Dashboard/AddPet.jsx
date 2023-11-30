@@ -73,7 +73,7 @@ const AddPet = () => {
 
 
 
-                    fetch('http://localhost:5000/addPet', {
+                    fetch('https://petco-server.vercel.app/addPet', {
                     method:'POST',
                     headers:{
                         'content-type':'application/json'

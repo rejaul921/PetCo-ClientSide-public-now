@@ -9,6 +9,7 @@ import AddPet from "../Dashboard/AddPet";
 import AllPets from "../Components/Allpets";
 import PetDetails from "../Components/PetDetails";
 import PrivateRoute from "../Components/PrivateRoute";
+import CategoryWisePet from "../Components/CategoryWisePet";
 
 
 const Router = createBrowserRouter([
@@ -37,6 +38,10 @@ const Router = createBrowserRouter([
                 path:"/petDetails/:_id",
                 element:<PrivateRoute><PetDetails></PetDetails></PrivateRoute>,
                 loader:({params})=>fetch(`https://petco-server.vercel.app/petDetails/${params._id}`)
+            },
+            {
+                path:"/categories/:name",
+                element:<CategoryWisePet></CategoryWisePet>
             },
         ]
     },

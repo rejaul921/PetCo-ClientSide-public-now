@@ -10,6 +10,8 @@ import AllPets from "../Components/Allpets";
 import PetDetails from "../Components/PetDetails";
 import PrivateRoute from "../Components/PrivateRoute";
 import CategoryWisePet from "../Components/CategoryWisePet";
+import CreateDonation from "../Dashboard/CreateDonation";
+import AllDonations from "../Components/AllDonations";
 
 
 const Router = createBrowserRouter([
@@ -43,6 +45,10 @@ const Router = createBrowserRouter([
                 path:"/categories/:name",
                 element:<CategoryWisePet></CategoryWisePet>
             },
+            {
+                path:"/donate",
+                element:<AllDonations></AllDonations>
+            }
         ]
     },
 
@@ -54,6 +60,10 @@ const Router = createBrowserRouter([
             {
                 path:"/dashboard/AddPet",
                 element:<AddPet></AddPet>
+            },
+            {
+                path:"/dashboard/createDonation",
+                element:<CreateDonation></CreateDonation>
             }
         ]
     }

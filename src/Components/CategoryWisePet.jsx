@@ -7,7 +7,7 @@ const CategoryWisePet = () => {
     const {name}=useParams();
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/categories/${name}`)
+        fetch(`https://petco-server.vercel.app/categories/${name}`)
         .then(res=>res.json())
         .then(data=>setCategoryWisePets(data))
 

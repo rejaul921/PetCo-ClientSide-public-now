@@ -73,6 +73,8 @@ const Navbar = () => {
                         </NavLink>
                     </ul>
                 </div>
+                
+                {/* rightside nav for all device same */}
                 <div className="navbar-end">
                     {/* Loggin */}
 
@@ -89,11 +91,11 @@ const Navbar = () => {
                             <li><p>{user.displayName}</p></li>
                             <NavLink to="/dashboard" className={({ isActive, isPending }) =>
                             isPending ? "pending" : 
-                            isActive ? "text-white bg-red-500 p-1 rounded-lg font-bold" : ""}>
+                            isActive ? "" : ""}>
                                 Dashboard
                         </NavLink>
                             
-                            <li><button onClick={SignOut} className=' bg-red-500 p-1 text-white rounded-lg '>Logout</button></li>
+                            <li><button onClick={SignOut} className=' '>Logout</button></li>
                         </ul>           
                         </div>
                     :

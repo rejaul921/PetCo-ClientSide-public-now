@@ -19,22 +19,22 @@ const Login = () => {
         navigate(location?.state ? location.state : '/');
         console.log(result)
         Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "You have successfully logged in",
-            showConfirmButton: false,
-            timer: 1500
-          });
+          position: "top-end",
+          icon: "success",
+          title: "You have successfully logged in",
+          showConfirmButton: false,
+          timer: 1500
+        });
       })
       .catch((error) => {
         console.error(error.message);
         Swal.fire({
-            position: "top-end",
-            icon: "error",
-            title: "Please provide a valid email and password",
-            showConfirmButton: false,
-            timer: 1500
-          });
+          position: "top-end",
+          icon: "error",
+          title: "Please provide a valid email and password",
+          showConfirmButton: false,
+          timer: 1500
+        });
       });
   };
 
@@ -42,8 +42,22 @@ const Login = () => {
     e.preventDefault();
     GoogleSignin()
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        const aUser = result.user;
+        console.log(aUser);
+        const user={...aUser, isAdmin:false}
+        fetch('https://petco-server.vercel.app/users', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+
+          })
+
         navigate(location?.state ? location.state : '/');
       })
       .catch((error) => {

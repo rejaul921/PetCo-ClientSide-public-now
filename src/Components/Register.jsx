@@ -25,6 +25,20 @@ const Register = () => {
     createUser(email, password, name, photo)
       .then((createdUser) => {
         console.log(createdUser.user);
+        const aUser=createdUser.user
+        const user={...aUser, isAdmin:false}
+        fetch('https://petco-server.vercel.app/users', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+
+          })
         Swal.fire({
             position: "top-end",
             icon: "success",

@@ -12,6 +12,13 @@ import PrivateRoute from "../Components/PrivateRoute";
 import CategoryWisePet from "../Components/CategoryWisePet";
 import CreateDonation from "../Dashboard/CreateDonation";
 import AllDonations from "../Components/AllDonations";
+import DonateCampaDetails from "../Components/DonateCampaDetails";
+import MyAddedPet from "../Dashboard/MyAddedPet";
+import AdoptionRequest from "../Dashboard/AdoptionRequest";
+import MyDonationCapaign from "../Dashboard/MyDonationCapaign";
+import AllCapaign from "../Dashboard/AllCapaign";
+import AllPetsDash from "../Dashboard/AllPetsDash";
+import AllUsers from "../Dashboard/AllUsers";
 
 
 const Router = createBrowserRouter([
@@ -48,22 +55,53 @@ const Router = createBrowserRouter([
             {
                 path:"/donate",
                 element:<AllDonations></AllDonations>
-            }
+            },
+            {
+                path:"/donationDetails/:_id",
+                element:<PrivateRoute><DonateCampaDetails></DonateCampaDetails></PrivateRoute>,
+                loader:({params})=>fetch(`https://petco-server.vercel.app/donationDetails/${params._id}`)
+            },
         ]
     },
 
     // dashboard area
     {
         path:"/dashboard",
-        element:<Dashboard></Dashboard>,
+        element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children:[
             {
                 path:"/dashboard/AddPet",
-                element:<AddPet></AddPet>
+                element:<PrivateRoute><AddPet></AddPet></PrivateRoute>
             },
             {
                 path:"/dashboard/createDonation",
-                element:<CreateDonation></CreateDonation>
+                element:<PrivateRoute><CreateDonation></CreateDonation></PrivateRoute>
+            },
+            {
+                path:"/dashboard/myAddedPet",
+                element:<PrivateRoute><MyAddedPet></MyAddedPet></PrivateRoute>
+            },
+            {
+                path:"/dashboard/AdoptionRequest",
+                element:<PrivateRoute><AdoptionRequest></AdoptionRequest></PrivateRoute>
+            },
+            {
+               path:"/dashboard/myDonationCampaign",
+               element:<PrivateRoute><MyDonationCapaign></MyDonationCapaign></PrivateRoute> 
+            },
+            // admin routes
+            {
+                path:"/dashboard/allUsers",
+                element:<AllUsers></AllUsers>
+
+            },
+            {
+                path:"/dashboard/allPets",
+                element:<AllPetsDash></AllPetsDash>
+            },
+            {
+                path:"/dashboard/allCampaign",
+                element:<AllCapaign></AllCapaign>
             }
         ]
     }

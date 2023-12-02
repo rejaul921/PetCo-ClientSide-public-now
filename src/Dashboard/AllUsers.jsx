@@ -35,7 +35,7 @@ const AllUsers = () => {
                                 {User.email}
                             </th>
                             <th>
-                                {User.isAdmin}
+                                {User.isAdmin? "An Admin":"A User"}
                             </th>
                             <th>
                                 <div className="flex gap-1 justify-center">

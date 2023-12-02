@@ -1,14 +1,43 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaCat, FaDog, FaDollarSign, FaFunnelDollar, FaReadme, FaUser, FaWallet } from "react-icons/fa";
 import Navbar from "../SharedCompo/Navbar";
-import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useContext, useEffect, useState } from "react";
+
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
-    console.log(user.isAdmin)
-    console.log(user)
-    const isAdmin=true
+    const [allUsers, setAllUsers] = useState([])
+    useEffect(() => {
+        fetch('https://petco-server.vercel.app/allUsers')
+            .then(res => res.json())
+            .then(data => setAllUsers(data))
+    }, [])
+    // console.log(allUsers)
+
+
+    // console.log(user.isAdmin)
+    // console.log(MongoUser.isAdmin)
+    // console.log(user)
+    // const isAdmin=true
+    const UserFromMongoDB=allUsers.find(User=>(User.email=user.email));
+    if(!UserFromMongoDB){
+        return (
+            <div className="flex justify-center items-center my-auto mx-auto">
+              <div>
+                <span className="loading loading-bars loading-xs"></span>
+                <span className="loading loading-bars loading-sm"></span>
+                <span className="loading loading-bars loading-md"></span>
+                <span className="loading loading-bars loading-lg"></span>
+              </div>
+            </div>
+          );
+    }
+    if(UserFromMongoDB){
+        console.log(UserFromMongoDB)
+    }
+    console.log(UserFromMongoDB)
+
     return (
         <div>
             <Navbar></Navbar>
@@ -16,7 +45,7 @@ const Dashboard = () => {
                 <div className="w-64  pt-8 min-h-screen bg-red-400">
                     {
                         // Admin part
-                        isAdmin ? <ul className="menu text-lg font-semibold text-white">
+                        UserFromMongoDB.isAdmin ? <ul className="menu text-lg font-semibold text-white">
                             <li><NavLink to="/dashboard/allUsers"><FaUser />All Users
                             </NavLink>
                             </li>

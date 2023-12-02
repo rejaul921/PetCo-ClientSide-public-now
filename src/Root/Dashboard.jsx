@@ -8,20 +8,31 @@ import { useContext, useEffect, useState } from "react";
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
     const [allUsers, setAllUsers] = useState([])
+    const [userFromMongoDB, setUserFromMongoDB] = useState(null)
+
+
     useEffect(() => {
         fetch('https://petco-server.vercel.app/allUsers')
             .then(res => res.json())
             .then(data => setAllUsers(data))
     }, [])
-    // console.log(allUsers)
+
+    useEffect(() => {
+        const email = user.email
+        const userFromMongoDB = allUsers.find(User => User.email === email)
+
+        // Check if userFromMongoDB is not null before updating state
+        if (userFromMongoDB) {
+            setUserFromMongoDB(userFromMongoDB)
+        }
+    }, [allUsers, user.email])
 
 
-    // console.log(user.isAdmin)
-    // console.log(MongoUser.isAdmin)
-    // console.log(user)
-    // const isAdmin=true
-    const UserFromMongoDB=allUsers.find(User=>(User.email=user.email));
-    if(!UserFromMongoDB){
+   
+    console.log(userFromMongoDB)
+    
+    
+    if(!userFromMongoDB){
         return (
             <div className="flex justify-center items-center my-auto mx-auto">
               <div>
@@ -33,10 +44,10 @@ const Dashboard = () => {
             </div>
           );
     }
-    if(UserFromMongoDB){
-        console.log(UserFromMongoDB)
+    if(userFromMongoDB){
+        // console.log(UserFromMongoDB)
     }
-    console.log(UserFromMongoDB)
+    console.log(userFromMongoDB.isAdmin)
 
     return (
         <div>
@@ -45,7 +56,7 @@ const Dashboard = () => {
                 <div className="w-64  pt-8 min-h-screen bg-red-400">
                     {
                         // Admin part
-                        UserFromMongoDB.isAdmin ? <ul className="menu text-lg font-semibold text-white">
+                        userFromMongoDB.isAdmin ? <ul className="menu text-lg font-semibold text-white">
                             <li><NavLink to="/dashboard/allUsers"><FaUser />All Users
                             </NavLink>
                             </li>
